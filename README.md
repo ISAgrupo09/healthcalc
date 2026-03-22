@@ -325,9 +325,9 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 
 ### Casos de uso
 
-![Diagrama de Casos de Uso](doc/nombre_de_tu_imagen.png)
+![Diagrama de Casos de Uso](Doc/CasosDeUso.png)
 
 **Especificaciones detalladas de los Casos de Uso implementados:**
-* [Caso de Uso: Calcular BMI](doc/Caso%20de%20Uso%20Calcular%20BMI..txt)
-* [Caso de Uso: Calcular IBW con fórmula de Lorentz](doc/Caso%20de%20Uso%20Calcular%20IBW%20con%20fórmul.txt)
-* [Caso de Uso: Calcular BMR según OMS](doc/Caso%20de%20Uso%20Calcular%20BMR%20según%20OMS..txt)
+* [Caso de Uso: Calcular BMI](Doc/Caso%20de%20Uso%20Calcular%20BMI..txt)
+* [Caso de Uso: Calcular IBW con fórmula de Lorentz](Doc/Caso%20de%20Uso%20Calcular%20IBW%20con%20fórmul.txt)
+* [Caso de Uso: Calcular BMR según OMS](Doc/Caso%20de%20Uso%20Calcular%20BMR%20según%20OMS..txt)
