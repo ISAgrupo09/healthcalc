@@ -1,4 +1,5 @@
 from healthcalc import HealthCalc, InvalidHealthDataException
+from healthcalc.person import Person
 
 
 class HealthCalcImpl(HealthCalc):
@@ -120,3 +121,14 @@ class HealthCalcImpl(HealthCalc):
                 return (8.126 * weight) + 845.6
             else:
                 return (9.082 * weight) + 658.5
+            
+                # --- Person-based metric methods for Practice 7:
+
+    def bmi_from_person(self, person: Person) -> float:
+        return self.bmi(person.weight(), person.height())
+
+    def ibw_from_person(self, person: Person) -> float:
+        return self.ibw_lorentz_metric(person.height(), person.gender().value)
+
+    def bmr_from_person(self, person: Person) -> float:
+        return self.bmr_metric(person.weight(), person.age(), person.gender().value)
