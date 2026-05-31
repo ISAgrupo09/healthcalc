@@ -429,3 +429,52 @@ En esta práctica se han aplicado cuatro patrones de diseño sobre la calculador
 **Propósito:** Permitir que la calculadora muestre el mensaje del IMC en español o inglés de forma intercambiable, y soportar simultáneamente una versión europea (metros/gramos) y una americana (pies/libras), sin modificar el núcleo de la calculadora. `CalculadoraRegional` delega la construcción del mensaje en la estrategia de idioma (`IdiomaStrategy`) inyectada en tiempo de ejecución.
 
 ![Diagrama UML – Strategy](design_patterns/strategy.png)
+
+## Práctica 7: Refactorings
+
+En esta práctica se han aplicado tres refactorings sobre la implementación de la calculadora de salud para mejorar su diseño, legibilidad y extensibilidad, siguiendo el esquema UML proporcionado en el enunciado.
+
+---
+
+### Refactoring 1: Creación de `Person` y uso de enumeraciones
+
+**Bad smell detectado:** Tipo primitivo obsesivo (*Primitive Obsession*) y lista larga de parámetros (*Long Parameter List*).
+En la implementación anterior se usaban directamente tipos primitivos y cadenas de texto para representar datos como el peso, la altura, la edad o el género, lo que podía dar lugar a errores difíciles de detectar (p. ej., escribir el género de formas distintas).
+
+**Refactorings aplicados:** *Introduce Parameter Object* y *Replace Type Code with Enum*.
+
+**Tipo/categoría:** Class refactoring y attribute refactoring.
+
+**Cambio realizado:** Se ha creado la interfaz `Person` (con su implementación `BasicPerson`) para agrupar los datos de una persona usados en los cálculos. Se han añadido también los enums `Gender` (FEMALE, MALE) y `BMICategory` (8 categorías WHO) para sustituir las cadenas de texto por tipos seguros en tiempo de ejecución.
+
+**Ficheros creados/modificados manualmente:** `person.py`, `gender.py`, `bmi_category.py`, `__init__.py` → 4 cambios manuales.
+
+---
+
+### Refactoring 2: Métodos de cálculo a partir de un objeto `Person`
+
+**Bad smell detectado:** Lista larga de parámetros (*Long Parameter List*).
+Algunos métodos recibían hasta 4–5 parámetros separados (peso, altura, edad, género, unidades), haciendo las llamadas largas e intuitivas y dificultando cambios futuros.
+
+**Refactoring aplicado:** *Introduce Parameter Object*.
+
+**Tipo/categoría:** Method refactoring.
+
+**Cambio realizado:** Se han añadido cuatro métodos nuevos en `HealthCalcImpl` que reciben un objeto `Person` directamente: `bmi_from_person`, `bmi_category_from_person`, `ibw_from_person` y `bmr_from_person`. Los métodos anteriores se mantienen para no romper los tests existentes.
+
+**Ficheros modificados manualmente:** `health_calc_impl.py` → 1 fichero, 4 métodos añadidos.
+
+---
+
+### Refactoring 3: Separación de interfaces por tipo de métrica
+
+**Bad smell detectado:** Interfaz inflada / violación del Principio de Segregación de Interfaces (*Interface Segregation Principle*).
+La calculadora agrupaba responsabilidades de distintas métricas de salud en una misma estructura, haciendo que implementadores solo interesados en una métrica tuviesen que conocer toda la interfaz.
+
+**Refactorings aplicados:** *Extract Interface* y *Split Interface*.
+
+**Tipo/categoría:** Class refactoring.
+
+**Cambio realizado:** Se han creado dos interfaces separadas: `BasalMetabolicIndex` (con `bmi_from_person` y `bmi_category_from_person`) e `IdealBodyWeight` (con `ibw_from_person`). La clase `HealthCalcImpl` implementa ambas interfaces junto con la `HealthCalc` original.
+
+**Ficheros creados/modificados manualmente:** `basal_metabolic_index.py`, `ideal_body_weight.py`, `health_calc_impl.py` → 3 cambios manuales.
