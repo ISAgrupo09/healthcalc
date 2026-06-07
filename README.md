@@ -304,7 +304,7 @@ Como usuario preocupado por mi salud (*health-conscious user*), quiero ver mi cl
 **Escenarios:**
 - **Full BMI Classification:** Clasificación del BMI según el valor obtenido (Ej. Severely Underweight, Healthy Weight, Obesity Class I) mediante un *Scenario Outline*.
 
-[Fichero feature](python-project-healthcalc/features/bmi_classification.feature)
+[Fichero feature](python-project-healthcalc/features/bmi.feature)
 
 ---
 
@@ -328,6 +328,12 @@ Como entusiasta del fitness (*fitness enthusiast*), quiero calcular mi BMR, para
 - **Calculate standard BMR:** Cálculo del BMR estándar proporcionando un peso, edad y género, utilizando la fórmula de la OMS (WHO).
 
 [Fichero feature](python-project-healthcalc/features/bmr_oms.feature)
+
+## Interfaz Gráfica de Usuario
+Se ha diseñado un prototipo de interfaz gráfica utilizando Pencil Project que integra los requisitos de usuario, así como el cálculo de las métricas mencionadas anteriormente y la visualización de sus respectivos resultados.
+
+![Prototipo Interfaz Gráfica HealthCalc](Doc/gui/InterfazGrafica.png) 
+
 
 ### Dependencias
 - Python 3.13+
