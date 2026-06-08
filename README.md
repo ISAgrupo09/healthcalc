@@ -429,3 +429,39 @@ En esta práctica se han aplicado cuatro patrones de diseño sobre la calculador
 **Propósito:** Permitir que la calculadora muestre el mensaje del IMC en español o inglés de forma intercambiable, y soportar simultáneamente una versión europea (metros/gramos) y una americana (pies/libras), sin modificar el núcleo de la calculadora. `CalculadoraRegional` delega la construcción del mensaje en la estrategia de idioma (`IdiomaStrategy`) inyectada en tiempo de ejecución.
 
 ![Diagrama UML – Strategy](design_patterns/strategy.png)
+
+## Práctica 8: Nuevo Proyecto HealthCalc
+
+El Hospital Universitario Virgen del Rocío de Sevilla ha encargado el desarrollo
+de una versión web de HealthCalc, idéntica en funcionalidades a la calculadora
+desarrollada para el Hospital Clínico de Málaga, pero implementada como
+aplicación web integrável en su ecosistema software.
+
+En esta práctica se han llevado a cabo las siguientes actividades:
+
+1. **Gestión del repositorio Git**: se han fusionado las ramas `p1` a `p7` en
+   `main` mediante `git merge --no-ff`, resolviendo los conflictos que han
+   aparecido y limpiando el repositorio para que contenga únicamente el
+   proyecto Python. Se ha creado la release **HealthCalc v1.0.0** en GitHub.
+
+2. **Planificación ágil con Kanban**: se ha creado un proyecto GitHub en la
+   organización con un tablero Kanban que incluye las fases Backlog, To Do,
+   In Progress, In Review y Done. Se han definido 22 tareas convertidas en
+   Issues, con información de prioridad, dificultad, esfuerzo (Fibonacci),
+   tipo, asignación y sprint. Se ha añadido también una vista de tipo Roadmap
+   (diagrama de Gantt) para la planificación temporal.
+
+### Tablero Kanban
+
+> **Captura del tablero** 
+> ![Tablero Kanban P8](docs/kanban-p8.png)
+
+**Enlace al proyecto GitHub:**
+[HealthCalc Web — Virgen del Rocío](https://github.com/ISAgrupo09/healthcalc/projects?query=is%3Aopen)
+
+
+### Release
+
+- **HealthCalc v1.0.0** — primera versión estable que integra el contenido
+  de todas las prácticas (P1–P7).
+  [Ver release en GitHub](https://github.com/ISAgrupo09/healthcalc/releases/tag/HealthCalcv1.0.0)
