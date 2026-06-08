@@ -454,7 +454,7 @@ En esta práctica se han llevado a cabo las siguientes actividades:
 ### Tablero Kanban
 
 > **Captura del tablero** 
-> ![Tablero Kanban P8](docs/kanban-p8.png)
+> ![Tablero Kanban P8](Doc/kanban-p8.png)
 
 **Enlace al proyecto GitHub:**
 [HealthCalc Web — Virgen del Rocío](https://github.com/ISAgrupo09/healthcalc/projects?query=is%3Aopen)
